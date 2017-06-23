@@ -23,6 +23,8 @@
 		845C463B1EFABC0E00457419 /* names.plist in Resources */ = {isa = PBXBuildFile; fileRef = 845C463A1EFABC0E00457419 /* names.plist */; };
 		845C463E1EFBAB4A00457419 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845C463D1EFBAB4A00457419 /* CoreData.framework */; };
 		845C46411EFBABA800457419 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 845C463F1EFBABA800457419 /* Model.xcdatamodeld */; };
+		845C477E1EFD62B200457419 /* PatientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845C477C1EFD62B200457419 /* PatientTableViewCell.swift */; };
+		845C477F1EFD62B200457419 /* PatientTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845C477D1EFD62B200457419 /* PatientTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		845C463A1EFABC0E00457419 /* names.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = names.plist; sourceTree = "<group>"; };
 		845C463D1EFBAB4A00457419 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		845C46401EFBABA800457419 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		845C477C1EFD62B200457419 /* PatientTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatientTableViewCell.swift; sourceTree = "<group>"; };
+		845C477D1EFD62B200457419 /* PatientTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PatientTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +124,8 @@
 				845C462F1EF9556400457419 /* Data */,
 				845C45FB1EF949EF00457419 /* AppDelegate.swift */,
 				845C46291EF94F0400457419 /* PatientTableViewController.swift */,
+				845C477C1EFD62B200457419 /* PatientTableViewCell.swift */,
+				845C477D1EFD62B200457419 /* PatientTableViewCell.xib */,
 				845C46361EFAA81000457419 /* SettingsViewController.swift */,
 				845C46371EFAA81000457419 /* SettingsViewController.xib */,
 				845C462B1EF952FC00457419 /* CreatePatientViewController.swift */,
@@ -281,6 +287,7 @@
 				845C46061EF949EF00457419 /* LaunchScreen.storyboard in Resources */,
 				845C46031EF949EF00457419 /* Assets.xcassets in Resources */,
 				845C46011EF949EF00457419 /* Main.storyboard in Resources */,
+				845C477F1EFD62B200457419 /* PatientTableViewCell.xib in Resources */,
 				845C46391EFAA81000457419 /* SettingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +318,7 @@
 				845C46331EF9678900457419 /* DetailViewController.swift in Sources */,
 				845C46411EFBABA800457419 /* Model.xcdatamodeld in Sources */,
 				845C46311EF9558400457419 /* Person.swift in Sources */,
+				845C477E1EFD62B200457419 /* PatientTableViewCell.swift in Sources */,
 				845C462D1EF952FC00457419 /* CreatePatientViewController.swift in Sources */,
 				845C46381EFAA81000457419 /* SettingsViewController.swift in Sources */,
 			);

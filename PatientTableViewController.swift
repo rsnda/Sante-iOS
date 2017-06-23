@@ -16,6 +16,8 @@ class PatientTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.register(UINib.init(nibName: "PatientTableViewCell", bundle: nil), forCellReuseIdentifier: "customCell")
+        
         let fetchRequest = NSFetchRequest<PersonData>(entityName: "PersonData")
         let sort = NSSortDescriptor(key: "lastName", ascending: true)
         fetchRequest.sortDescriptors = [sort]
@@ -81,14 +83,20 @@ class PatientTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "patientCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath)
 
-        let order = UserDefaults.standard.value(forKey: "namingConvention") as? Bool ?? false
+        if let customCell = cell as? PatientTableViewCell {
+            customCell.setupCell(patient: self.fetchedResultController.object(at: indexPath))
+        }
+        //let order = UserDefaults.standard.value(forKey: "namingConvention") as? Bool ?? false
         // Configure the cell...
-        cell.textLabel?.text = fetchedResultController.object(at: indexPath).getFullName(reversedOrder: order)
+        //cell.textLabel?.text = fetchedResultController.object(at: indexPath).getFullName(reversedOrder: order)
         return cell
     }
  
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "showDetail", sender: self)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
