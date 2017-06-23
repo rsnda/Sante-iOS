@@ -13,7 +13,6 @@ class DetailViewController: UIViewController {
     var patient: PersonData!
     var onDeleteUser: (() -> ())?
 
-
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var surnameLabel: UILabel!
     @IBOutlet weak var avatarImageView: UIImageView!
@@ -29,8 +28,6 @@ class DetailViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = button
         
         self.title = patient.getFullName()
-        nameLabel.text = patient.firstName
-        surnameLabel.text = patient.lastName
         avatarImageView.image = #imageLiteral(resourceName: "NeutralAvatar")
         
         informationTextView.text = patient.presentation

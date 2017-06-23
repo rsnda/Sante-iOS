@@ -19,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        importDataFromPlist()
-        clearDatabase()
+        //importDataFromPlist()
         refreshFromServer()
         
         return true
@@ -28,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func importDataFromPlist() {
         // Check if import has been done
-        //TODO : UserDefault key (dataImported)
         let dataImported = UserDefaults.standard.value(forKey: VALUE_DATA_IMPORTED) as? Bool ?? false
         
         // if false : importData
@@ -39,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return
             }
             
-            /*for dict in array {
+            for dict in array {
                 if let dictionnary = dict as? [String:Any] {
                     let firstname = dictionnary["name"] as? String ?? "Error"
                     let lastname = dictionnary["lastname"] as? String ?? "Error"
@@ -57,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
 
             UserDefaults.standard.set(true, forKey: VALUE_DATA_IMPORTED)
- */
+ 
         }
         
     }
@@ -83,12 +81,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func updateFromJson(json: [[String : Any]]) {
-        
+        // Definition of Fetch Request :
         let sort = NSSortDescriptor(key: "serverId", ascending: true)
         let fetchedRequest = NSFetchRequest<PersonData>(entityName: "PersonData")
         fetchedRequest.sortDescriptors = [sort]
         
-        // Delete all :
+        // Delete all data :
         let persons = try! persistentContainer.viewContext.fetch(fetchedRequest)
         for person in persons {
             persistentContainer.viewContext.delete(person)
@@ -118,18 +116,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UserDefaults.standard.set(true, forKey: VALUE_DATA_IMPORTED)
     }
-    
-    func clearDatabase() {
-        
-        do {
-            var request = try persistentContainer.viewContext.fetch(NSFetchRequest(entityName: "PersonData"))
-            request.removeAll()
-            print(request)
-        } catch {
-            fatalError(error as! String)
-        }
-    }
- 
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -191,6 +177,13 @@ extension UIViewController {
         get {
             let appdelegate = UIApplication.shared.delegate as! AppDelegate
             return appdelegate.persistentContainer
+        }
+    }
+    
+    var API_URL: String {
+        get {
+            let appdelegate = UIApplication.shared.delegate as! AppDelegate
+            return appdelegate.API_URL
         }
     }
     

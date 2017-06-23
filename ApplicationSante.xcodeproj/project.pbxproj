@@ -118,17 +118,17 @@
 			isa = PBXGroup;
 			children = (
 				845C462F1EF9556400457419 /* Data */,
+				845C45FB1EF949EF00457419 /* AppDelegate.swift */,
 				845C46291EF94F0400457419 /* PatientTableViewController.swift */,
 				845C46361EFAA81000457419 /* SettingsViewController.swift */,
-				845C463A1EFABC0E00457419 /* names.plist */,
 				845C46371EFAA81000457419 /* SettingsViewController.xib */,
 				845C462B1EF952FC00457419 /* CreatePatientViewController.swift */,
 				845C462C1EF952FC00457419 /* CreatePatientViewController.xib */,
-				845C45FB1EF949EF00457419 /* AppDelegate.swift */,
 				845C46321EF9678900457419 /* DetailViewController.swift */,
 				845C45FF1EF949EF00457419 /* Main.storyboard */,
 				845C46021EF949EF00457419 /* Assets.xcassets */,
 				845C46041EF949EF00457419 /* LaunchScreen.storyboard */,
+				845C463A1EFABC0E00457419 /* names.plist */,
 				845C46071EF949EF00457419 /* Info.plist */,
 			);
 			path = ApplicationSante;
@@ -557,6 +557,7 @@
 				845C46221EF949EF00457419 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		845C46231EF949EF00457419 /* Build configuration list for PBXNativeTarget "ApplicationSanteTests" */ = {
 			isa = XCConfigurationList;
@@ -565,6 +566,7 @@
 				845C46251EF949EF00457419 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		845C46261EF949EF00457419 /* Build configuration list for PBXNativeTarget "ApplicationSanteUITests" */ = {
 			isa = XCConfigurationList;
@@ -573,6 +575,7 @@
 				845C46281EF949EF00457419 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

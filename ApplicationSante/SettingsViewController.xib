@@ -21,32 +21,44 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7Y-ay-ICW">
-                    <rect key="frame" x="82" y="283" width="156" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7Y-ay-ICW">
+                    <rect key="frame" x="82" y="303" width="156" height="30"/>
                     <color key="backgroundColor" red="0.60000002379999995" green="0.60000002379999995" blue="0.60000002379999995" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Apply"/>
                     <connections>
                         <action selector="applyChanges:" destination="-1" eventType="touchUpInside" id="6SE-4u-kiR"/>
                     </connections>
                 </button>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oN0-ks-Cvx">
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oN0-ks-Cvx">
                     <rect key="frame" x="48" y="139" width="225" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="John Doe"/>
                         <segment title="Doe John"/>
                     </segments>
                 </segmentedControl>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show name as : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAA-EQ-9rS">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Show name as : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UAA-EQ-9rS">
                     <rect key="frame" x="48" y="110" width="157" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="UAA-EQ-9rS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="110" id="07z-xx-hwc"/>
+                <constraint firstAttribute="trailing" secondItem="UAA-EQ-9rS" secondAttribute="trailing" constant="115" id="6EI-ay-Syc">
+                    <variation key="heightClass=compact-widthClass=compact" constant="115"/>
+                </constraint>
+                <constraint firstAttribute="trailing" secondItem="oN0-ks-Cvx" secondAttribute="trailing" constant="47" id="A9j-9W-t55"/>
+                <constraint firstItem="oN0-ks-Cvx" firstAttribute="top" secondItem="UAA-EQ-9rS" secondAttribute="bottom" constant="8" id="D9j-Kw-HwV"/>
+                <constraint firstItem="UAA-EQ-9rS" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="48" id="WCB-Io-dRG"/>
+                <constraint firstAttribute="trailing" secondItem="d7Y-ay-ICW" secondAttribute="trailing" constant="82" id="ZAV-6F-CKh"/>
+                <constraint firstItem="d7Y-ay-ICW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="82" id="a5u-Za-tvL"/>
+                <constraint firstAttribute="bottom" secondItem="d7Y-ay-ICW" secondAttribute="bottom" constant="235" id="fXt-tb-CHg">
+                    <variation key="heightClass=compact-widthClass=compact" constant="80"/>
+                </constraint>
+                <constraint firstItem="oN0-ks-Cvx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="48" id="jNu-J7-DRm"/>
+            </constraints>
             <point key="canvasLocation" x="26" y="51"/>
         </view>
     </objects>

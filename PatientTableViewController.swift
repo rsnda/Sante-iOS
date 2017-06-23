@@ -24,12 +24,6 @@ class PatientTableViewController: UITableViewController {
         
         fetchedResultController.delegate = self
         try! fetchedResultController.performFetch()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.tableView.reloadData()
         
@@ -101,6 +95,7 @@ class PatientTableViewController: UITableViewController {
                 return
             }
             
+            /* --- The code on the delete button of the DetailViewController --- */
             detailController.onDeleteUser = {
                 
                 let patient = self.fetchedResultController.object(at: selectedIndexPath)

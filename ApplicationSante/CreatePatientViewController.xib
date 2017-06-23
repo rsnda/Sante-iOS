@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -20,20 +20,20 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="PSG-md-Tbw">
-                    <rect key="frame" x="15" y="163" width="290" height="30"/>
+                    <rect key="frame" x="15" y="113" width="538" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lastname : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lf0-WS-RkZ">
-                            <rect key="frame" x="0.0" y="0.0" width="145" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="269" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pmN-Yu-6Le">
-                            <rect key="frame" x="145" y="0.0" width="145" height="30"/>
+                            <rect key="frame" x="269" y="0.0" width="269" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -41,7 +41,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skL-sA-jYO">
-                    <rect key="frame" x="105" y="410" width="110" height="30"/>
+                    <rect key="frame" x="105" y="260" width="358" height="30"/>
                     <color key="backgroundColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                     <state key="normal" title="Add">
                         <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -51,16 +51,16 @@
                     </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="KRM-vO-YJr">
-                    <rect key="frame" x="15" y="99" width="290" height="30"/>
+                    <rect key="frame" x="15" y="49" width="538" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Surname : " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mFT-us-tAY">
-                            <rect key="frame" x="0.0" y="0.0" width="145" height="30"/>
+                            <rect key="frame" x="0.0" y="0.0" width="269" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qnH-3B-dqP">
-                            <rect key="frame" x="145" y="0.0" width="145" height="30"/>
+                            <rect key="frame" x="269" y="0.0" width="269" height="30"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -68,7 +68,7 @@
                     </subviews>
                 </stackView>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="jio-8I-u8y">
-                    <rect key="frame" x="70" y="270" width="180" height="29"/>
+                    <rect key="frame" x="160" y="185" width="248" height="29"/>
                     <segments>
                         <segment title="Homme"/>
                         <segment title="Femme"/>
@@ -83,7 +83,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="skL-sA-jYO" secondAttribute="trailing" constant="105" id="3xg-Wx-3eZ"/>
                 <constraint firstItem="KRM-vO-YJr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="99" id="8bH-DI-Bpp">
-                    <variation key="heightClass=compact-widthClass=compact" constant="30"/>
+                    <variation key="heightClass=compact-widthClass=compact" constant="49"/>
                 </constraint>
                 <constraint firstAttribute="bottom" secondItem="skL-sA-jYO" secondAttribute="bottom" constant="128" id="I3t-pq-Aur">
                     <variation key="heightClass=compact-widthClass=compact" constant="30"/>
@@ -93,7 +93,7 @@
                     <variation key="heightClass=compact-widthClass=compact" constant="160"/>
                 </constraint>
                 <constraint firstItem="skL-sA-jYO" firstAttribute="top" secondItem="jio-8I-u8y" secondAttribute="bottom" constant="112" id="kse-Aq-VR4">
-                    <variation key="heightClass=compact-widthClass=compact" constant="70"/>
+                    <variation key="heightClass=compact-widthClass=compact" constant="47"/>
                 </constraint>
                 <constraint firstItem="skL-sA-jYO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="105" id="oZc-U8-77J"/>
                 <constraint firstAttribute="trailing" secondItem="PSG-md-Tbw" secondAttribute="trailing" constant="15" id="qfE-TC-h56"/>

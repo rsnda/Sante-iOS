@@ -19,7 +19,7 @@ protocol CreatePatientViewControllerDelegate: AnyObject {
 class CreatePatientViewController: UIViewController {
     // Creation of the delegate :
     weak var delegate: CreatePatientViewControllerDelegate?
-    let API_URL = "http://10.1.0.100:3000/persons"
+
 
     @IBOutlet weak var progress: UIProgressView!
     @IBOutlet weak var surnameTextField: UITextField!
@@ -48,41 +48,49 @@ class CreatePatientViewController: UIViewController {
     
 
     @IBAction func addPatient(_ sender: UIButton) {
-        
+        /* Create a dict like :
+         {
+            "surname": "Vincent",
+            "lastname": "Leroux",
+            "pictureUrl": "https://www.exemple.com/picture.jpg"
+         }
+         */
         var json = [String:String]()
         json["surname"] = self.surnameTextField.text ?? "Unknown"
         json["lastname"] = self.lastnameTextField.text ?? "Unknown"
         json["pictureUrl"] = "http://nationalreport.net/wp-content/uploads/2016/09/KimJongUn.jpg"
         
+        // Create a json POST http request containing the json dict :
         var request = URLRequest(url: URL(string:self.API_URL)!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpBody = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
         
+        // Create a task that will send the request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             if let data = data {
-                
+                // Update of the local base
                 let jsonDict = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String:Any]
                 guard let dict = jsonDict as? [String : Any] else {
                     return
                 }
                 
+                // Creation of local person
                 let person = PersonData(entity: PersonData.entity(), insertInto: self.persistentContainer.viewContext)
                 person.lastName = dict["lastname"] as? String
                 person.firstName = dict["surname"] as? String
                 person.pictureUrl = dict["pictureUrl"] as? String
                 person.serverId = Int64(dict["id"] as? Int ?? 0)
-                
+ 
                 DispatchQueue.main.async{
                     do {
-                        try self.persistentContainer.viewContext.save()
+                        try self.persistentContainer.viewContext.save() // Saving to local base
                     } catch {
                         print(error)
                     }
                     
                     self.delegate?.createPerson()
-                    self.dismiss(animated: true, completion: nil)
                 }
                 
             }
@@ -91,7 +99,9 @@ class CreatePatientViewController: UIViewController {
         
         task.resume()
         
-        /*DispatchQueue.global(qos: .userInitiated).async {
+        // Update of the progress bar :
+        /*
+        DispatchQueue.global(qos: .userInitiated).async {
             var i = Float(0)
             while i < 1 {
                 DispatchQueue.main.async {
@@ -101,28 +111,8 @@ class CreatePatientViewController: UIViewController {
                 Thread.sleep(forTimeInterval: 0.01)
             }
             
-            DispatchQueue.main.async {
-                var gender: Person.Gender
-                
-                if self.genderSegmentedControl.selectedSegmentIndex == 0 {
-                    gender = .Male
-                } else {
-                    gender = .Female
-                }
-                
-                let pData = PersonData(entity: PersonData.entity(), insertInto: self.persistentContainer.viewContext)
-                pData.firstName = self.surnameTextField.text!
-                pData.lastName = self.lastnameTextField.text!
-                do {
-                    try self.persistentContainer.viewContext.save()
-                } catch {
-                    print(error)
-                }
-                // Calling the function implemented in PatientTableViewController
-                self.delegate?.createPerson()
-            }
-        }*/
-        
+        }
+        */
     }
     
     /*
