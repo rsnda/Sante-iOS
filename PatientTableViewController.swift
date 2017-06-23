@@ -39,6 +39,10 @@ class PatientTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        let appdelegate = UIApplication.shared.delegate as! AppDelegate
+        appdelegate.refreshFromServer()
+        
     }
     
     func showCreateViewController(){
@@ -96,7 +100,20 @@ class PatientTableViewController: UITableViewController {
             }
             
             /* --- The code on the delete button of the DetailViewController --- */
-            detailController.onDeleteUser = {
+            detailController.onDeleteUser = { patientId in
+                
+                // Create a DELETE http request containing the json dict :
+                // URL = API_URL/patientId
+                var request = URLRequest(url: URL(string:self.API_URL + "/" + String(patientId))!)
+                request.httpMethod = "DELETE"
+                request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                
+                // Create a task that will send the request
+                let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                    print("DELETE ERROR : ", error ?? "NO ERROR")
+                }
+                
+                task.resume()
                 
                 let patient = self.fetchedResultController.object(at: selectedIndexPath)
                 self.persistentContainer.viewContext.delete(patient)

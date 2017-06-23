@@ -68,33 +68,7 @@ class CreatePatientViewController: UIViewController {
         
         // Create a task that will send the request
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            
-            if let data = data {
-                // Update of the local base
-                let jsonDict = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) as? [String:Any]
-                guard let dict = jsonDict as? [String : Any] else {
-                    return
-                }
-                
-                // Creation of local person
-                let person = PersonData(entity: PersonData.entity(), insertInto: self.persistentContainer.viewContext)
-                person.lastName = dict["lastname"] as? String
-                person.firstName = dict["surname"] as? String
-                person.pictureUrl = dict["pictureUrl"] as? String
-                person.serverId = Int64(dict["id"] as? Int ?? 0)
- 
-                DispatchQueue.main.async{
-                    do {
-                        try self.persistentContainer.viewContext.save() // Saving to local base
-                    } catch {
-                        print(error)
-                    }
-                    
-                    self.delegate?.createPerson()
-                }
-                
-            }
-            
+            self.delegate?.createPerson()
         }
         
         task.resume()

@@ -11,7 +11,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var patient: PersonData!
-    var onDeleteUser: (() -> ())?
+    var onDeleteUser: ((Int64) -> ())?
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var surnameLabel: UILabel!
@@ -60,7 +60,7 @@ class DetailViewController: UIViewController {
             
         }
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive ){ action in
-            self.onDeleteUser?()
+            self.onDeleteUser?(self.patient.serverId)
         }
         
         alertController.addAction(cancelAction)
